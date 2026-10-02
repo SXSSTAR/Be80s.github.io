@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Be 80's — Live tribute to the greatest New Wave and Pop hits of the 80s. Belgium and France.">
+<title>Be 80's — The 80s Live Experience</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Orbitron:wght@500;700;800;900&family=Press+Start+2P&display=swap');
+
+:root{
+  --pink:#ff1493;
+  --cyan:#00f6ff;
+  --violet:#7137ff;
+  --lime:#9dff00;
+  --yellow:#ffe600;
+  --blue:#09002b;
+  --black:#03000d;
+  --white:#fff;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(113,55,255,.28),transparent 28%),
+    radial-gradient(circle at 80% 10%,rgba(255,20,147,.22),transparent 25%),
+    var(--black);
+  color:var(--white);
+  font-family:Orbitron,Arial,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:auto;padding:0 28px}
+
+header{
+  position:fixed;z-index:20;top:0;left:0;right:0;
+  background:rgba(3,0,13,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid var(--cyan);
+  box-shadow:0 0 22px rgba(0,246,255,.35);
+}
+nav{
+  height:82px;display:flex;align-items:center;justify-content:center;
+  gap:30px;
+}
+.navlogo{
+  position:absolute;left:22px;top:8px;width:145px;height:66px;
+  object-fit:contain;filter:drop-shadow(0 0 8px var(--pink));
+}
+nav a{
+  font-size:14px;font-weight:800;letter-spacing:1.5px;
+  text-shadow:0 0 7px rgba(255,255,255,.35);
+}
+nav a:hover{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+
+.lang{
+  position:absolute;right:22px;display:flex;gap:8px
+}
+.lang button{
+  background:transparent;border:1px solid #555;color:#bbb;
+  padding:7px 9px;font:800 12px Orbitron;cursor:pointer
+}
+.lang button.active{
+  color:#000;background:var(--lime);border-color:var(--lime);
+  box-shadow:0 0 12px var(--lime)
+}
+
+.hero{
+  min-height:760px;margin-top:82px;position:relative;overflow:hidden;
+  background:
+    linear-gradient(125deg,rgba(255,20,147,.18),transparent 35%),
+    linear-gradient(310deg,rgba(0,246,255,.16),transparent 40%),
+    #08001d;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.3;
+  background-image:
+    linear-gradient(rgba(0,246,255,.22) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,20,147,.22) 1px,transparent 1px);
+  background-size:50px 50px;
+  transform:perspective(500px) rotateX(58deg) scale(1.8);
+  transform-origin:bottom;
+}
+.hero:after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 40%,transparent 0 25%,rgba(3,0,13,.75) 75%);
+}
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.55;mix-blend-mode:screen;
+}
+.hero-content{
+  position:relative;z-index:2;min-height:760px;
+  display:flex;align-items:center;padding:80px 28px;
+}
+.hero-copy{max-width:720px}
+.hero-logo{
+  width:620px;max-width:90%;height:auto;
+  filter:drop-shadow(0 0 8px var(--cyan)) drop-shadow(0 0 18px var(--pink));
+}
+.kicker{
+  font:14px "Press Start 2P",monospace;
+  color:var(--lime);margin:22px 0 18px;
+  text-shadow:0 0 9px var(--lime)
+}
+.tagline{
+  font:700 clamp(28px,4vw,52px) "Archivo Black",Arial,sans-serif;
+  line-height:1.02;text-transform:uppercase;
+  color:white;
+  text-shadow:4px 4px 0 var(--pink),8px 8px 0 var(--violet);
+  max-width:700px;
+}
+.hero-sub{
+  margin:22px 0 28px;font-size:16px;line-height:1.7;max-width:640px;
+  color:#ddd;
+}
+.btn{
+  display:inline-block;
+  background:var(--pink);color:white;
+  padding:15px 24px;font-weight:900;font-size:14px;letter-spacing:1px;
+  border:2px solid white;
+  box-shadow:6px 6px 0 var(--cyan),0 0 20px rgba(255,20,147,.6);
+  transition:.2s;
+}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--lime),0 0 25px rgba(0,246,255,.8)}
+
+.neon-strip{
+  border-top:2px solid var(--cyan);border-bottom:2px solid var(--pink);
+  background:#060014;
+}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.feature{
+  padding:25px 18px;text-align:center;border-right:1px solid #3b2d60;
+}
+.feature:last-child{border:0}
+.feature .icon{font-size:34px;margin-bottom:9px}
+.feature h3{margin:0 0 8px;font-size:14px;color:var(--cyan)}
+.feature p{margin:0;font-size:12px;line-height:1.5;color:#bbb}
+
+section{padding:78px 0}
+.section-title{
+  font:800 38px Orbitron,sans-serif;line-height:1;
+  margin:0 0 28px;text-transform:uppercase;
+}
+.section-title span{color:var(--pink);text-shadow:0 0 10px var(--pink)}
+
+.media-dates{display:grid;grid-template-columns:1.1fr .9fr;gap:38px}
+.video-card{
+  min-height:360px;background:#09001d;overflow:hidden;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 20px rgba(0,246,255,.18),inset 0 0 25px rgba(113,55,255,.18);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:35px;
+}
+.video-card h3{font-size:22px;color:var(--cyan);margin:0 0 15px}
+.video-card p{font-family:Arial,sans-serif;color:#bbb;line-height:1.6}
+.video-card .play{
+  display:inline-block;margin:15px 0 22px;width:72px;height:72px;border-radius:50%;
+  border:3px solid var(--pink);font-size:27px;line-height:67px;color:var(--pink);
+  box-shadow:0 0 20px var(--pink)
+}
+
+.dates{
+  border-left:3px solid var(--pink);padding-left:28px;
+}
+.date{
+  display:grid;grid-template-columns:105px 1fr;gap:15px;
+  padding:13px 0;border-bottom:1px solid #3b2d60;
+}
+.date strong{color:var(--lime);font-size:14px}
+.date small{display:block;margin-top:5px;color:#999;font-size:12px}
+.date .venue-link{
+  color:var(--cyan);font-weight:800;text-decoration:underline;
+  text-underline-offset:3px;
+}
+.date .venue-link:hover{color:var(--pink)}
+
+.about{
+  background:
+    linear-gradient(90deg,rgba(113,55,255,.12),transparent 50%,rgba(255,20,147,.1)),
+    #070016;
+  border-top:2px solid #281b4a;border-bottom:2px solid #281b4a;
+}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-photo{
+  width:100%;min-height:400px;object-fit:cover;
+  border:2px solid var(--pink);
+  box-shadow:12px 12px 0 var(--cyan),0 0 25px rgba(255,20,147,.3);
+  background:linear-gradient(135deg,#16004a,#08001d);
+}
+.about p{white-space:pre-line;line-height:1.8;font-family:Arial,sans-serif;font-size:16px;color:#ddd}
+
+.booking{
+  background:
+    linear-gradient(135deg,rgba(255,20,147,.92),rgba(113,55,255,.92)),
+    var(--pink);
+  color:#fff;
+}
+.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.booking .section-title{font-size:48px;text-shadow:4px 4px 0 var(--cyan)}
+.booking p{font-family:Arial,sans-serif;font-size:16px;line-height:1.6}
+form{display:grid;gap:13px}
+input,textarea{
+  width:100%;padding:15px;border:2px solid #12001f;
+  background:#fff;color:#000;font:16px Arial
+}
+textarea{min-height:120px}
+.booking .btn{background:var(--lime);color:#05000d;border-color:#05000d;box-shadow:6px 6px 0 #05000d}
+
+footer{
+  padding:35px 0;border-top:3px solid var(--cyan);text-align:center;
+  background:#03000d;
+}
+footer .social{display:flex;justify-content:center;gap:28px;font-size:14px;margin-bottom:18px}
+footer a:hover{color:var(--cyan)}
+.footer-neon{color:var(--lime);text-shadow:0 0 8px var(--lime);margin-top:10px}
+
+@media(max-width:900px){
+  nav{gap:14px}.navlogo{width:120px}
+  .lang{right:10px}
+  .feature-grid,.media-dates,.about-grid,.booking-grid{grid-template-columns:1fr}
+  section{padding:52px 0}
+  .feature{border-right:0;border-bottom:1px solid #3b2d60}
+  .dates{border-left:0;border-top:3px solid var(--pink);padding:25px 0 0}
+}
+@media(max-width:620px){
+  header{position:relative}
+  nav{height:auto;min-height:74px;flex-wrap:wrap;padding:8px 5px}
+  .navlogo{display:none}
+  .lang{position:static}
+  .hero{margin-top:0}
+  .hero-content{min-height:650px;padding:45px 28px}
+  .tagline{font-size:30px}
+  .hero-logo{max-width:100%}
+  .section-title{font-size:27px}
+  .booking .section-title{font-size:35px}
+  .date{grid-template-columns:88px 1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+<nav class="wrap">
+<img class="navlogo" src="assets/logo.png" alt="Be 80's">
+<a href="#home" data-i18n="nav_home">ACCUEIL</a>
+<a href="#band" data-i18n="nav_band">LE GROUPE</a>
+<a href="#live" data-i18n="nav_live">LIVE</a>
+<a href="#dates" data-i18n="nav_dates">DATES</a>
+<a href="#booking" data-i18n="nav_booking">BOOKING</a>
+<a href="#contact" data-i18n="nav_contact">CONTACT</a>
+<div class="lang">
+<button type="button" data-lang="fr" class="active">FR</button>
+<button type="button" data-lang="en">EN</button>
+<button type="button" data-lang="de">DE</button>
+</div>
+</nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <img class="hero-bg" src="assets/hero.jpg" alt="">
+  <div class="hero-content wrap">
+    <div class="hero-copy">
+      <img class="hero-logo" src="assets/logo.png" alt="Be 80's">
+      <div class="kicker">LIVE • NEW WAVE • POP • 80s</div>
+      <div class="tagline" data-i18n="tagline">THE SOUND. THE STYLE. THE 80's.</div>
+      <p class="hero-sub" data-i18n="hero_sub">Un voyage live dans les années 80 : New Wave, Pop, énergie et hymnes cultes.</p>
+      <a class="btn" href="#booking" data-i18n="book">BOOK THE 80's →</a>
+    </div>
+  </div>
+</section>
+
+<div class="neon-strip">
+<div class="wrap feature-grid">
+  <div class="feature"><div class="icon">⚡</div><h3 data-i18n="f1">80's ENERGY</h3><p data-i18n="f1p">Un show live énergique</p></div>
+  <div class="feature"><div class="icon">♫</div><h3 data-i18n="f2">NEW WAVE</h3><p data-i18n="f2p">Les grands classiques</p></div>
+  <div class="feature"><div class="icon">★</div><h3 data-i18n="f3">LIVE SHOW</h3><p data-i18n="f3p">Chanter, danser, vibrer</p></div>
+  <div class="feature"><div class="icon">◉</div><h3 data-i18n="f4">FESTIVALS & EVENTS</h3><p data-i18n="f4p">Belgique · France · Europe</p></div>
+</div>
+</div>
+
+<section id="live">
+<div class="wrap media-dates">
+  <div>
+    <h2 class="section-title" data-i18n="video_title">WATCH OUR <span>LIVE</span> VIDEO</h2>
+    <div class="video-card">
+      <div>
+        <div class="play">▶</div>
+        <h3 data-i18n="video_heading">BE 80's — LIVE</h3>
+        <p data-i18n="video_text">Retrouvez nos vidéos, concerts et extraits sur notre chaîne YouTube.</p>
+        <a class="btn" href="https://www.youtube.com/@Be80smusic" target="_blank" rel="noopener" data-i18n="youtube">WATCH ON YOUTUBE →</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="dates" class="dates">
+    <h2 class="section-title" data-i18n="dates_title">NEXT <span>DATES</span></h2>
+
+    <div class="date">
+      <strong>13.11.26</strong>
+      <div><span class="venue-link">LA LOUVIÈRE</span><br><small>Le Stock · Belgium</small></div>
+    </div>
+
+    <div class="date">
+      <strong>04.04.27</strong>
+      <div><span class="venue-link">VERVIERS</span><br><small>Spirit of 66 · Belgium</small></div>
+    </div>
+
+    <div class="date">
+      <strong>21.06.27</strong>
+      <div><span class="venue-link">ARLEUX</span><br><small>Fête de la musique · France</small></div>
+    </div>
+
+    <div class="date">
+      <strong>02.07.27</strong>
+      <div><span class="venue-link">TIHANGE</span><br><small>Guinguette chez Minette · Belgium</small></div>
+    </div>
+
+    <a class="btn" style="margin-top:25px" href="#booking" data-i18n="all_dates">BOOKING / MORE DATES →</a>
+  </div>
+</div>
+</section>
+
+<section id="band" class="about">
+<div class="wrap about-grid">
+  <img class="about-photo" src="assets/band.jpg" alt="Be 80's live">
+  <div>
+    <h2 class="section-title" data-i18n="about_title">ABOUT <span>BE 80's</span></h2>
+    <p data-i18n="about_text">Be 80's replonge le public au cœur des années 80 avec un show live consacré aux grands classiques New Wave et Pop.</p>
+    <p data-i18n="about_text2">Au programme : U2, The Cure, Depeche Mode, Eurythmics, Indochine et bien d'autres artistes emblématiques. Une formule pensée pour les concerts, festivals, événements publics et soirées privées.</p>
+    <a class="btn" href="#booking" data-i18n="booking_cta">BOOKING →</a>
+  </div>
+</div>
+</section>
+
+<section id="booking" class="booking">
+<div class="wrap booking-grid">
+  <div>
+    <h2 class="section-title" data-i18n="booking_title">BOOK <span>BE 80's</span></h2>
+    <p data-i18n="booking_text">Vous préparez un festival, une fête, un événement public ou une soirée privée ? Envoyez-nous votre projet, votre date et votre lieu.</p>
+    <p><strong>80's · NEW WAVE · POP · LIVE · BELGIUM · FRANCE</strong></p>
+  </div>
+
+  <div id="contact">
+    <!-- Remplacez l'action Formspree par votre propre formulaire lorsque vous aurez créé votre compte. -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input name="name" required data-ph="name_ph" placeholder="Nom / Organisation">
+      <input name="email" type="email" required data-ph="email_ph" placeholder="Email">
+      <input name="event" data-ph="event_ph" placeholder="Événement / Salle / Ville">
+      <input name="date" data-ph="date_ph" placeholder="Date">
+      <textarea name="message" data-ph="message_ph" placeholder="Parlez-nous de votre événement"></textarea>
+      <input type="hidden" name="_subject" value="Be 80's — New booking request">
+      <button class="btn" type="submit" data-i18n="send">ENVOYER LA DEMANDE →</button>
+    </form>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+  <div class="social">
+    <a href="https://www.facebook.com/Be80smusic/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.youtube.com/@Be80smusic" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/be80smusic" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>BE 80's — LIVE 80s / NEW WAVE</div>
+  <div class="footer-neon">TURN BACK TIME. TURN UP THE MUSIC.</div>
+</div>
+</footer>
+
+<script>
+const t={
+fr:{
+nav_home:"ACCUEIL",nav_band:"LE GROUPE",nav_live:"LIVE",nav_dates:"DATES",nav_booking:"BOOKING",nav_contact:"CONTACT",
+tagline:"THE SOUND. THE STYLE. THE 80's.",
+hero_sub:"Un voyage live dans les années 80 : New Wave, Pop, énergie et hymnes cultes.",
+book:"BOOK THE 80's →",
+f1:"80's ENERGY",f1p:"Un show live énergique",f2:"NEW WAVE",f2p:"Les grands classiques",f3:"LIVE SHOW",f3p:"Chanter, danser, vibrer",f4:"FESTIVALS & EVENTS",f4p:"Belgique · France · Europe",
+video_title:"REGARDEZ NOTRE <span>LIVE</span>",video_heading:"BE 80's — LIVE",video_text:"Retrouvez nos vidéos, concerts et extraits sur notre chaîne YouTube.",youtube:"VOIR SUR YOUTUBE →",
+dates_title:"PROCHAINES <span>DATES</span>",all_dates:"BOOKING / AUTRES DATES →",
+about_title:"À PROPOS DE <span>BE 80's</span>",about_text:"Be 80's replonge le public au cœur des années 80 avec un show live consacré aux grands classiques New Wave et Pop.",about_text2:"Au programme : U2, The Cure, Depeche Mode, Eurythmics, Indochine et bien d'autres artistes emblématiques. Une formule pensée pour les concerts, festivals, événements publics et soirées privées.",
+booking_title:"BOOK <span>BE 80's</span>",booking_cta:"BOOKING →",booking_text:"Vous préparez un festival, une fête, un événement public ou une soirée privée ? Envoyez-nous votre projet, votre date et votre lieu.",send:"ENVOYER LA DEMANDE →",
+name_ph:"Nom / Organisation",email_ph:"Email",event_ph:"Événement / Salle / Ville",date_ph:"Date",message_ph:"Parlez-nous de votre événement"
+},
+en:{
+nav_home:"HOME",nav_band:"THE BAND",nav_live:"LIVE",nav_dates:"DATES",nav_booking:"BOOKING",nav_contact:"CONTACT",
+tagline:"THE SOUND. THE STYLE. THE 80's.",hero_sub:"A live journey through the 80s: New Wave, Pop, energy and iconic anthems.",book:"BOOK THE 80's →",
+f1:"80's ENERGY",f1p:"A high-energy live show",f2:"NEW WAVE",f2p:"The iconic classics",f3:"LIVE SHOW",f3p:"Sing, dance, feel it",f4:"FESTIVALS & EVENTS",f4p:"Belgium · France · Europe",
+video_title:"WATCH OUR <span>LIVE</span>",video_heading:"BE 80's — LIVE",video_text:"Find our videos, concerts and live extracts on our YouTube channel.",youtube:"WATCH ON YOUTUBE →",
+dates_title:"NEXT <span>DATES</span>",all_dates:"BOOKING / MORE DATES →",
+about_title:"ABOUT <span>BE 80's</span>",about_text:"Be 80's takes audiences straight back to the 1980s with a live show dedicated to the great New Wave and Pop classics.",about_text2:"Featuring U2, The Cure, Depeche Mode, Eurythmics, Indochine and many other iconic artists. A show designed for concerts, festivals, public events and private parties.",
+booking_title:"BOOK <span>BE 80's</span>",booking_cta:"BOOKING →",booking_text:"Planning a festival, party, public event or private evening? Send us your project, date and venue.",send:"SEND BOOKING REQUEST →",
+name_ph:"Name / Organisation",email_ph:"Email",event_ph:"Event / Venue / City",date_ph:"Date",message_ph:"Tell us about your event"
+},
+de:{
+nav_home:"HOME",nav_band:"DIE BAND",nav_live:"LIVE",nav_dates:"TERMINE",nav_booking:"BOOKING",nav_contact:"KONTAKT",
+tagline:"THE SOUND. THE STYLE. THE 80's.",hero_sub:"Eine Live-Reise durch die 80er: New Wave, Pop, Energie und Kult-Hits.",book:"BE 80's BUCHEN →",
+f1:"80's ENERGY",f1p:"Eine energiegeladene Live-Show",f2:"NEW WAVE",f2p:"Die großen Klassiker",f3:"LIVE SHOW",f3p:"Singen, tanzen, feiern",f4:"FESTIVALS & EVENTS",f4p:"Belgien · Frankreich · Europa",
+video_title:"UNSER <span>LIVE</span> VIDEO",video_heading:"BE 80's — LIVE",video_text:"Videos, Konzerte und Live-Ausschnitte findet ihr auf unserem YouTube-Kanal.",youtube:"AUF YOUTUBE →",
+dates_title:"NÄCHSTE <span>TERMINE</span>",all_dates:"BOOKING / WEITERE TERMINE →",
+about_title:"ÜBER <span>BE 80's</span>",about_text:"Be 80's bringt das Publikum mit einer Live-Show rund um die großen New-Wave- und Pop-Klassiker direkt zurück in die 80er.",about_text2:"Mit U2, The Cure, Depeche Mode, Eurythmics, Indochine und vielen weiteren Kult-Künstlern. Ideal für Konzerte, Festivals, öffentliche Veranstaltungen und private Feiern.",
+booking_title:"BE 80's <span>BUCHEN</span>",booking_cta:"BOOKING →",booking_text:"Sie planen ein Festival, eine Party, eine öffentliche Veranstaltung oder einen privaten Abend? Senden Sie uns Ihr Projekt, Datum und Veranstaltungsort.",send:"BOOKING-ANFRAGE SENDEN →",
+name_ph:"Name / Organisation",email_ph:"E-Mail",event_ph:"Event / Veranstaltungsort / Stadt",date_ph:"Datum",message_ph:"Erzählen Sie uns von Ihrer Veranstaltung"
+}
+};
+
+function setLang(lang){
+  if(!t[lang]) lang='fr';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.dataset.i18n;
+    if(t[lang][k]!==undefined) el.innerHTML=t[lang][k];
+  });
+  document.querySelectorAll('[data-ph]').forEach(el=>{
+    const k=el.dataset.ph;
+    if(t[lang][k]!==undefined) el.placeholder=t[lang][k];
+  });
+  document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));
+  try{localStorage.setItem('be80s_lang',lang)}catch(e){}
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.lang button').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
+  let saved='fr';
+  try{saved=localStorage.getItem('be80s_lang')||'fr'}catch(e){}
+  setLang(saved);
+});
+</script>
+</body>
+</html>
